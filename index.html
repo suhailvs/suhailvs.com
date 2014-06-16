@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Blog layout example - UIkit documentation</title>        
+        <link rel="stylesheet" href="uikit/css/uikit.gradient.min.css">
+        <link rel="stylesheet" href="heatmap/cal-heatmap.css"> 
+        <script type="text/javascript" src="heatmap/d3.v3.min.js"></script>  
+        <script type="text/javascript" src="heatmap/cal-heatmap.min.js"></script>
+               
+
+    </head>
+
+    <body>
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+            <nav class="uk-navbar uk-margin-large-bottom">
+                <a class="uk-navbar-brand uk-hidden-small" href="layouts_frontpage.html">Brand</a>
+                <ul class="uk-navbar-nav uk-hidden-small">
+                    <li><a href="layouts_frontpage.html">Frontpage</a></li>
+                    <li><a href="layouts_portfolio.html">Portfolio</a></li>
+                    <li class="uk-active"><a href="layouts_blog.html">Blog</a></li>
+                    <li><a href="layouts_documentation.html">Documentation</a></li>
+                    <li><a href="layouts_contact.html">Contact</a></li>
+                    <li><a href="layouts_login.html">Login</a></li>
+                </ul>
+                <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+                <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+            </nav>
+
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-3-4">
+                    <article class="uk-article">
+                        <h1 class="uk-article-title">
+                            <a href="layouts_post.html">Article Heading</a>
+                        </h1>
+                        <p class="uk-article-meta">Written by Author on 12 April 2013. Posted in <a href="#">Blog</a></p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        <h2>Subheading</h2>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        <p>
+                            <a class="uk-button uk-button-primary" href="layouts_post.html">Continue Reading</a>
+                            <a class="uk-button" href="layouts_post.html">4 Comments</a>
+                        </p>
+
+                    </article>
+
+                    <ul class="uk-pagination">
+                        <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
+                        <li class="uk-active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">20</a></li>
+                        <li><a href="#"><i class="uk-icon-angle-double-right"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-panel uk-panel-box uk-text-center">                        
+                        <h3>Author Name</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut.</p>
+                    </div>
+
+                    <a href="#" id="btn-previous">1--</a> | <a href="#" id="btn-next">--1</a>
+                    <div id="cal-heatmap"></div>
+
+                    <div class="uk-panel">
+                        <h3 class="uk-panel-title">Archives</h3>
+                        <ul class="uk-list uk-list-line">
+                            <li><a href="#">January 2014</a></li>
+                            <li><a href="#">December 2013</a></li>
+                            <li><a href="#">November 2013</a></li>
+                            <li><a href="#">October 2013</a></li>
+                            <li><a href="#">September 2013</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-panel">
+                        <h3 class="uk-panel-title">Social Links</h3>
+                        <ul class="uk-list">
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="offcanvas" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar">
+                <ul class="uk-nav uk-nav-offcanvas">
+                    <li><a href="layouts_frontpage.html">Frontpage</a></li>
+                    <li><a href="layouts_portfolio.html">Portfolio</a></li>
+                    <li class="uk-active"><a href="layouts_blog.html">Blog</a></li>
+                    <li><a href="layouts_documentation.html">Documentation</a></li>
+                    <li><a href="layouts_contact.html">Contact</a></li>
+                    <li><a href="layouts_login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+
+    <script type="text/javascript">
+
+        var calendar = new CalHeatMap();
+        var CurrentDate = new Date();
+        var dt = new Date();
+
+        var x = 3; //or whatever offset
+        dt.setMonth(CurrentDate.getMonth() - x+1);
+        
+        calendar.init({
+            verticalOrientation: true,
+            start: dt,
+            minDate: new Date(2013, 1),
+            maxDate:CurrentDate,
+            domain: "month",
+            subDomain: "x_day",
+            range: x,
+            displayLegend: false,
+            cellSize: 20,
+            previousSelector: "#btn-previous",
+            nextSelector: "#btn-next",
+            highlight: ["now", CurrentDate]
+        });
+    </script>
+    </body>
+</html>
