@@ -1,15 +1,4 @@
-/*****************************************************************************/
 
-/*
-/* Common
-/*
-/*****************************************************************************/
-
-/* Global Reset */
- * {
-    margin: 0;
-    padding: 0;
-}
 html, body {
     height: 100%;
 }
@@ -84,9 +73,9 @@ ul.posts li a:hover {
     /*text-align: justify;*/
     text-align: left;
     max-width: 800px;
-    margin: 3em auto 2em;
-    line-height: 1.5em;
-    padding: 1em;
+    margin: 1em auto 2em;
+    line-height: 1.5em;    
+    padding-top:50px;
 }
 /*
 .site .header {
@@ -141,15 +130,15 @@ ul.posts li a:hover {
 }
 .site .footer {
     font-size: 80%;
-    color: #666;
-    border-top: 2px solid #eee;
-    margin-top: 2em;
+    color: #666;    
+    margin: 0;
     overflow: hidden;
     text-align: center;
+    background: #803833;
 }
 .site .footer a {
     margin: 1em;
-    color: #000;
+    color: #ccc;
 }
 /*.site .footer .contact {
   float: left;
@@ -239,9 +228,15 @@ div.nav {
 margin: 0;
 font-size: 13px;
 text-align: right;
+color: #ccc;
 
 }
 div.nav a{
     color: #90514D;
-    padding-left: 10px;
+    padding: 0 5px;
+}
+div.nav a:hover{
+    background: #90514D; 
+    color: #fff;    
+    text-decoration: none
 }
