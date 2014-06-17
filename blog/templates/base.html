@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}Suhail vs, Django Developer</title>
+    <meta name="domain" content="suhailvs.com"/>
+    <meta name="title" content={% block metatitle %}"Hi, I'm Suhail, and welcome to my blog. I write about Python, Django, and much more."{% endblock %} />
+
+    <meta name="description" content={% block metadescription %}"This blog is about Python, Django, webdevelopment."{% endblock %}/>
+    <meta name="url" content={% block metaurl %}"http://suhailvs.com/"{% endblock %}/>
+    <link rel="stylesheet" href="{% static "common.css" %}">
+	<link rel="stylesheet" href="{% static "heatmap/cal-heatmap.css" %}"> 
+</head>
+<body>
+	<div style="float:right;">
+	    <div id="cal-heatmap"></div>
+	</div>
+	<div class="site">
+	    <span style="color:#fff;font-size:2em">
+	        <strong>Suhail VS - </strong><small>Python Django Developer</small>
+	    </span> 
+	    <!-- Nav bar -->
+	    <div class="nav">
+	        <a href="{% url 'home' %}">Home</a>|<a href="{% url 'static_pages' 'aboutme' %}">About me</a>|<a href="{% url 'static_pages' 'projects' %}">Projects</a>| <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Tags</a>          
+	    </div>	    
+		{% block content %}
+		{% endblock %}		
+		<div class="footer">
+	        <p> <a href="https://github.com/suhailvs">GitHub</a> &bull; <a href="https://twitter.com/suhailvs">Twitter</a> &bull; <a href="http://www.fb.com/suhailvs0">Facebook</a> &bull; <a href="http://stackoverflow.com/users/2351696">Stackoverflow</a> &bull; <a href="http://elance.com/s/suhailvs">Elance</a> &bull; <a href="mailto:suhailvs@gmail.com">Email</a>
+	        </p>
+	    </div>
+	</div><!-- /site -->
+
+	<div id="light" class="white_content">    
+	    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="boxclose"></a>
+	    <div style="padding:20px;"> 
+	    	<a href="#">
+	    		<span style="font-size:.9em; margin: 5px;">sdfa fdsafdsf</span>
+	    	</a>
+	    </div>
+	</div>
+	<div id="fade" class="black_overlay"></div>
+
+	<script type="text/javascript" src="{% static "heatmap/d3.v3.min.js" %}"></script>  
+	<script type="text/javascript" src="{% static "heatmap/cal-heatmap.min.js" %}"></script>
+	<script type="text/javascript">
+	    var calendar = new CalHeatMap();	    
+	    var dt = new Date();
+	    //alert(String(dt.getTime()));
+	    var x = 1; //or whatever offset
+	    dt.setYear(dt.getFullYear() - x+1);        
+	    calendar.init({            
+	        domain: "year",
+	        subDomain: "month",            
+	        start: dt,
+	        cellSize: 25,
+	        range: x,
+	        subDomainTextFormat: "%m",
+	        displayLegend: false,    
+	        onClick: function(date, nb) {
+	            alert("You just clicked <br/>on <b>month:" +
+	                date.getMonth() + "date:"+ date+"</b> <br/>with <b>" +
+	                (nb === null ? "unknown" : nb) + "</b> items"
+	            );
+	        },
+	        //legendVerticalPosition: "top",
+	        //data: {
+	        //    String(dt.getTime()): 100,            
+	        //},
+	        legend: [5,10,15,20,25]
+	    });
+	</script>
+	{% block javascripts %}
+	{% endblock %} 
+</body>
+</html>

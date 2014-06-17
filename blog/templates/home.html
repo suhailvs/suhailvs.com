@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="home" class="post">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    <li class="year">2013</li>
+    {% for blog in blogs %}    
+    <li>
+    <a href="{% url 'blog' blog.pk %}{{blog.title|slugify|truncatechars:60}}">{{ blog.title|truncatechars:150 }}</a>
+    </li>
+    {% endfor %}    
+  </ul>
+</div>
+{% endblock %}

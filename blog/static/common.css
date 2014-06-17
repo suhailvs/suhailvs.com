@@ -1,0 +1,288 @@
+
+html, body {
+    height: 100%;
+}
+body {
+    background-color: #FFF;
+    /*font: 13.34px 'proxima-nova-1', 'proxima-nova-2', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, sans-serif;*/
+    font: 14px'proxima-nova-1', 'proxima-nova-2', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, sans-serif;
+    /*font-size: small;*/
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+h1, h2, h3 {
+    margin: 1em 0;
+}
+p {
+    margin: 1em 0;
+}
+a {
+    color: #00a;
+}
+a:hover {
+    color: #000;
+}
+a:visited {
+    color: #a0a;
+}
+/*****************************************************************************/
+
+/*
+/* Home
+/*
+/*****************************************************************************/
+ ul.posts {
+    list-style-type: none;
+    margin-bottom: 2em;
+}
+ul.posts li {
+    /*line-height: 1.75em;*/
+    margin-bottom: 0.5em;
+    padding-left: 4em;
+}
+ul.posts li.year {
+    color: #aaa;
+    /*font-weight: bold;*/
+    float: left;
+    padding-left: 0;
+    /*border-bottom: 1px solid #000;*/
+}
+ul.posts li a {
+    color: #000;
+    text-decoration: none;
+}
+ul.posts li a:hover {
+    color: #a00;
+    text-decoration: underline;
+}
+/*ul.posts span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}*/
+
+/*****************************************************************************/
+
+/*
+/* Site
+/*
+/*****************************************************************************/
+ .site {
+    font-size: 115%;
+    /*text-align: justify;*/
+    text-align: left;
+    max-width: 800px;
+    margin: 1em auto 2em;
+    line-height: 1.5em;    
+    padding-top:50px;
+}
+/*
+.site .header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5em;
+}
+.site .header .tagline {
+    color: #bbb;
+    font-style: italic;
+    position: relative;
+    top: -10px;
+    left: 1em;
+}
+.site .header nav {
+    float: right;
+}
+.site .header nav a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 58px;
+}
+.site .header a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site .header h1.title {
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.site .header h1.title a {
+  color: #a00;
+}
+
+.site .header h1.title a:hover {
+  color: #000;
+}
+
+.site .header a.extra {
+  color: #aaa;
+  margin-left: 1em;
+}
+
+.site .header a.extra:hover {
+  color: #000;
+}*/
+ .site .meta {
+    color: #aaa;
+}
+.site .footer {
+    font-size: 80%;
+    color: #666;    
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    background: #803833;
+}
+.site .footer a {
+    margin: 1em;
+    color: #400;
+}
+/*.site .footer .contact {
+  float: left;
+  margin-right: 3em;
+}*/
+
+/*.site .footer .contact a {
+  color: #8085C1;
+}*/
+
+/*.site .footer .rss {
+  margin-top: 1.1em;
+  margin-right: -.2em;
+  float: right;
+}
+
+.site .footer .rss img {
+  border: 0;
+}*/
+
+/*****************************************************************************/
+
+/*
+/* Posts
+/*
+/*****************************************************************************/
+ .post .title {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+}
+.post .date {
+    color: #ccc;
+    text-transform: uppercase;
+}
+.post .body {
+    margin-bottom: 2em;
+}
+.post .body h3 {
+}
+.post pre, .post code {
+    font: 13px/20px'Monaco', 'Courier New', 'Terminal', monospace;
+}
+/* standard */
+ .post pre {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 .4em;
+    /*overflow: scroll;*/
+}
+.post ul, .post ol {
+    margin: 1em 0 1em 2em;
+}
+.post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 .2em;
+}
+.post pre code {
+    border: none;
+}
+/* terminal */
+ .post pre.terminal {
+    border: 1px solid #000;
+    background-color: #333;
+    color: #FFF;
+}
+.post pre.terminal code {
+    background-color: #333;
+}
+
+/*custom
+========================================================*/
+body {
+    background:#400;
+color: #F0F0F0;
+font-family: PT Sans, DejaVu Sans, Arial, sans;
+}
+div.post {
+    color: #000;
+    background: #fff;
+    border-left: 30px solid #700;
+    padding: 1.2em;
+}
+
+div.nav {
+margin: 0;
+font-size: 13px;
+text-align: right;
+color: #ccc;
+
+}
+div.nav a{
+    color: #90514D;
+    padding: 0 5px;
+}
+div.nav a:hover{
+    background: #90514D; 
+    color: #fff;    
+    text-decoration: none
+}
+
+/*
+===============================
+PopUP see http://jsfiddle.net/b68Xb/
+===============================*/
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+
+.white_content {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    padding: 16px;
+    border: 16px solid #700;
+    background-color: white;
+    color: black;
+    z-index:1002;
+    overflow: auto;
+}
+a.boxclose{
+    float:right;
+    margin-top:-10px;
+    margin-right:-10px;
+    cursor:pointer;
+    color: #700;    
+    text-decoration: none;    
+    font-weight: bold;     
+    border:1px solid #400;
+}
+a.boxclose:before {
+    content: "X";
+}
