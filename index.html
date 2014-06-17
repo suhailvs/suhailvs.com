@@ -160,7 +160,12 @@
         range: x,
         subDomainTextFormat: "%m",
         displayLegend: false,    
-        
+        onClick: function(date, nb) {
+            alert("You just clicked <br/>on <b>month:" +
+                date.getMonth() + "date:"+ date+"</b> <br/>with <b>" +
+                (nb === null ? "unknown" : nb) + "</b> items"
+            );
+        },
         //legendVerticalPosition: "top",
         legend: [5,10,15,20,25]
     });
