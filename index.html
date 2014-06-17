@@ -8,11 +8,11 @@
 </div>
 <div class="site">
     <span style="color:#fff;font-size:2em">
-        <strong>Suhail VS - </strong><small>Django Python Developer</small>
+        <strong>Suhail VS - </strong><small>Python Django Developer</small>
     </span> 
     
     <div class="nav">
-        <a href="#">Home</a>|<a href="frontmatter.html">About me</a>|<a href="frontmatter.html">Projects</a>|<a href="frontmatter.html">Tags</a>          
+        <a href="javascript:void(0)">Home</a>|<a href="frontmatter.html">About me</a>|<a href="frontmatter.html">Projects</a>| <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Tags</a>          
     </div>  
     
      
@@ -139,17 +139,25 @@
         </div>
     </div>
     <div class="footer">
-        <p> <a href="https://github.com/andrewhavens">GitHub</a> &bull; <a href="https://twitter.com/misbehavens">Twitter</a> &bull; <a href="http://www.linkedin.com/in/andrewhavens">LinkedIn</a> &bull; <a href="mailto:email@andrewhavens.com">Email</a>
-
+        <p> <a href="https://github.com/suhailvs">GitHub</a> &bull; <a href="https://twitter.com/suhailvs">Twitter</a> &bull; <a href="http://www.fb.com/suhailvs0">Facebook</a> &bull; <a href="http://stackoverflow.com/users/2351696">Stackoverflow</a> &bull; <a href="http://elance.com/s/suhailvs">Elance</a> &bull; <a href="mailto:suhailvs@gmail.com">Email</a>
         </p>
     </div>
 
 </div>
 
+<div id="light" class="white_content">    
+    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="boxclose"></a>
+    <div style="padding:20px;">    
+    This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. This is the lightbox content. 
+    </div>
+</div>
+<div id="fade" class="black_overlay"></div>
+
 <script type="text/javascript">
     var calendar = new CalHeatMap();
-   
+    
     var dt = new Date();
+    alert(String(dt.getTime()));
     var x = 1; //or whatever offset
     dt.setYear(dt.getFullYear() - x+1);        
     calendar.init({            
@@ -167,6 +175,9 @@
             );
         },
         //legendVerticalPosition: "top",
+        //data: {
+        //    String(dt.getTime()): 100,            
+        //},
         legend: [5,10,15,20,25]
     });
 </script>
