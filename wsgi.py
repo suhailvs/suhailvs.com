@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os
+import os,sys
 
 # Activate the virtual env
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
@@ -10,7 +10,7 @@ except IOError:pass
 # set the variable DJANGO_SETTINGS_MODULE="mysite.settings" to environ
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
-# add OPENSHIFT_REPO_DIR='~/app-root/repo/www/' to system path
+# add OPENSHIFT_REPO_DIR(ie: '~/app-root/repo/www/') to system path
 sys.path.append(os.environ['OPENSHIFT_REPO_DIR'])
 
 # taken from django1.6 wsgi file
