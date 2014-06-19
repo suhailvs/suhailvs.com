@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load bextras %}
+
 {% block title %}{{blog.title|slugify|truncatechars:60}} - {% endblock %}
 {% block metatitle %}"{{blog.title}}"{% endblock %}
 {% block metadescription %}"{{blog.content}}"{% endblock %}
@@ -11,6 +13,13 @@
     {% for tag in blog.tags.all %}
     <a href=""><span style="font-size:.9em; margin: 5px;">{{ tag.name }}</span></a>
     {% endfor %}
-    <div class="body">{{blog.content|safe}}</div>
+    <div class="body">{{ blog.content|markdown }}</div>
 </div>
 {% endblock %}
+
+{% block javascripts %}
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>//hljs.initHighlightingOnLoad();
+//$('pre code').each(function(i, e) {hljs.highlightBlock(e)});</script>
+{% endblock %}}
