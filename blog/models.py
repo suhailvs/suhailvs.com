@@ -12,5 +12,6 @@ class Blog(models.Model):
 	tags=models.ManyToManyField(Tag)	
 	content=models.TextField(blank=True)
 	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
 	def __unicode__(self):
 		return unicode(self.title)

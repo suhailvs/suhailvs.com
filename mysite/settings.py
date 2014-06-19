@@ -81,3 +81,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+if 'OPENSHIFT_DATA_DIR' in os.environ:
+    #IF RHC    
+    is_mysql=True    
+    #MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi','static')
+    if is_mysql:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'www',
+                'USER': 'admincfbxk9D',
+                'PASSWORD': 'SWAJ1mCXX_dg',
+                'HOST': os.environ.get('OPENSHIFT_MYSQL_DB_HOST'),
+                'PORT': os.environ.get('OPENSHIFT_MYSQL_DB_PORT'),
+                'CONN_MAX_AGE': 600,
+            }
+        }
