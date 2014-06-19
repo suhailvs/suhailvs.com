@@ -6,6 +6,17 @@
 {% block metadescription %}"{{blog.content}}"{% endblock %}
 {% block metaurl %}"http://suhailvs.com/{{blog.pk}}/{{blog.title|slugify|truncatechars:60}}"{% endblock %}
 
+
+{% block extrahead %}
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_light.min.css">
+<style type="text/css">
+	
+pre > code{
+overflow-x:auto;
+}
+
+</style>
+		{% endblock %}		
 {% block content %}
 <div class="post">
     <h1 class="title">{{blog.title}}</h1>
@@ -13,13 +24,19 @@
     {% for tag in blog.tags.all %}
     <a href=""><span style="font-size:.9em; margin: 5px;">{{ tag.name }}</span></a>
     {% endfor %}
-    <div class="body">{{ blog.content|markdown }}</div>
+    <div class="body">{{ blog.content|markdown|safe }}</div>
 </div>
 {% endblock %}
 
 {% block javascripts %}
-<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-<script>//hljs.initHighlightingOnLoad();
-//$('pre code').each(function(i, e) {hljs.highlightBlock(e)});</script>
+<!--http://highlightjs.org/static/styles/solarized_light.css,
+default.min.css
+
+-->
+<script>hljs.initHighlightingOnLoad();
+//$('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+
+
+</script>
 {% endblock %}}

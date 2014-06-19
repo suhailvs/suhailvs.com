@@ -179,15 +179,15 @@ ul.posts li a:hover {
 }
 .post .body h3 {
 }
+/* standard 
 .post pre, .post code {
     font: 13px/20px'Monaco', 'Courier New', 'Terminal', monospace;
 }
-/* standard */
+
  .post pre {
     border: 1px solid #ddd;
     background-color: #eef;
     padding: 0 .4em;
-    /*overflow: scroll;*/
 }
 .post ul, .post ol {
     margin: 1em 0 1em 2em;
@@ -200,8 +200,7 @@ ul.posts li a:hover {
 .post pre code {
     border: none;
 }
-/* terminal */
- .post pre.terminal {
+.post pre.terminal {
     border: 1px solid #000;
     background-color: #333;
     color: #FFF;
@@ -209,7 +208,7 @@ ul.posts li a:hover {
 .post pre.terminal code {
     background-color: #333;
 }
-
+*/
 /*custom
 ========================================================*/
 body {
