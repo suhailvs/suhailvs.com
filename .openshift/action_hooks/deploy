@@ -9,8 +9,8 @@ source $OPENSHIFT_HOMEDIR/python/virtenv/bin/activate
 
 
 echo "SUHAIL:Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py syncdb --noinput'"
-python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py syncdb --noinput
+python "$OPENSHIFT_REPO_DIR"manage.py syncdb --noinput
 
 
 echo "SUHAIL2Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py collectstatic --noinput'"
-python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput
+python "$OPENSHIFT_REPO_DIR"manage.py collectstatic --noinput
