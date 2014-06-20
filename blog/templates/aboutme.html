@@ -2,5 +2,98 @@
 {% block content %}
 <div class="post">
   <h1>About me</h1>
+  <table style="font-size:.7em;">
+  <tr>
+  <td>
+  	<img src="http://i.stack.imgur.com/yCCGK.jpg?s=128&amp;g=1" alt="" class="logo">
+  </td>
+  <td style="padding:0px 30px 0px 20px">
+  	<p><strong>Address:</strong><br>Sumayya manzil, Kolakkode, <br>paruvassery-678686, Palakkad, Kerala<br>  	
+  	<strong>Phone:</strong>  0091 9495881367<br>
+  	<strong>email:</strong>  suhailvs@gmail.com<br>
+  	<strong>Skype:</strong>  suhailvs1<br>
+  	</p>
+  </td>
+  <td><strong>Follow:</strong>
+	<ul>
+		<li><a href="https://github.com/suhailvs">GitHub</a></li>		
+		<li><a href="http://www.fb.com/suhailvs0">Facebook</a></li>
+		<li><a href="http://stackoverflow.com/users/2351696">Stackoverflow</a></li>
+		<li><a href="http://elance.com/s/suhailvs">Elance</a></li>		
+	</ul>
+	</td>
+	</tr>
+	</table>
+	<div>
+	<hr>
+    <p>I like programming in Python, Django, CSS, Jquery etc on Ubuntu. I am currently a freelancer at <a href="http://www.elance.com/s/suhailvs" rel="nofollow">elance</a>
+    </p>
+    <p>I like to listen these <a href="http://www.joshwoodward.com/" rel="nofollow">songs</a>.</p>
+    
+<h3>My Favorite films are:</h3>
+
+    <hr>
+    <ul>
+        <li><a href="http://www.imdb.com/title/tt0111161" rel="nofollow">The Shawshank Redemption</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0914798" rel="nofollow">The Boy in the Striped Pajamas</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0073486" rel="nofollow">One flew over cuckoo's nest</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0050083" rel="nofollow">12 Angry men</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0758758" rel="nofollow">Into The Wild</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0060196" rel="nofollow">The Good The Bad and The Ugly</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0071143" rel="nofollow">Animals are beautiful people</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0080801" rel="nofollow">The Gods must be crazy</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0268978" rel="nofollow">A Beautiful Mind</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt0133093/" rel="nofollow">The Matrix</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt1675434/" rel="nofollow">The Intouchables</a>
+        </li>
+        <li><a href="http://www.imdb.com/title/tt1010048/" rel="nofollow">Slumdog Millionaire</a>
+        </li>
+    </ul>
+    
+<h3>My Favourite Software tools are:</h3>
+
+    <ul>
+        <li><a href="https://www.python.org/" rel="nofollow">Python</a> - a high level programming language(like java)</li>
+        <li><a href="http://git-scm.com/" rel="nofollow">GIT</a> - a revision control software.</li>
+        <li><a href="http://www.sublimetext.com/" rel="nofollow">Sublime</a> - a text editor.</li>
+    </ul>
+
+    <p>My Home location: Latitude:10.59975, Longitude: 76.45969</p>
+    <img src="http://maps.googleapis.com/maps/api/staticmap?center=10.59975,76.45969&zoom=10&size=640x200&markers=color:blue%7Clabel:H%7C10.59975,76.45969">
+    <!--<div id="map-canvas" style="height: 300px;"></div>-->
+</div>
 </div>
 {% endblock %}
+{% block javascripts %}
+	<!--
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(10.59975,76.45969);
+  var mapOptions = {
+    zoom: 8,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'This is my House.'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>-->
+    {% endblock %} 
