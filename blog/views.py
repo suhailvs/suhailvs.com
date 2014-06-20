@@ -3,14 +3,13 @@ from blog.models import Blog,Tag
 
 # Create your views here.
 def home(request):
-	if 'tags' in request.GET:
-		# get note list base on tags in post, only public notes
-		#tags=request.GET.getlist('tags')
+	if 'tags' in request.GET:		
 		blogs=Blog.objects.filter(tags__in=request.GET.getlist('tags')).order_by('-created')
-		tags=Tag.objects.filter(id__in=request.GET.getlist('tags'))	
+		filtered_tags=Tag.objects.filter(id__in=request.GET.getlist('tags'))	
 	else:
+		filtered_tags=False
 		blogs=Blog.objects.order_by('-created')
-	return render(request,'home.html',{'blogs':blogs})
+	return render(request,'home.html',{'blogs':blogs,'filtered_tags':filtered_tags})
 
 def blog(request,pk):
 	blog=Blog.objects.get(id=pk)

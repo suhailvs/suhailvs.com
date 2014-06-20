@@ -12,10 +12,10 @@ def markdown(value,smode=None):
 @register.simple_tag
 def create_tagmenu():
     tgs=Tag.objects.all()
-    if not tgs:return ''
+    if not tgs:return '<li> no tags!</li>'
     taglist=[(Blog.objects.filter(tags=tg).distinct().count(),tg.pk,tg.name) for tg in tgs]    
     str_html=''
     turl=reverse('home')
     for tg in taglist:
-        str_html+='<li><a href="{url}?tags={tag[1]}"><span class="label label-warning">{tag[2]}</span> x {tag[0]}</a></li>'.format(tag=tg,url=turl)
+        str_html+='<li><a href="{url}?tags={tag[1]}" class="post-tag">{tag[2]}</a><span class="item-multiplier"> x {tag[0]}</span></li>'.format(tag=tg,url=turl)
     return str_html

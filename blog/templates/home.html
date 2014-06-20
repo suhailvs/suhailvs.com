@@ -2,8 +2,12 @@
 {% block content %}
 <div id="home" class="post">
   <h1>Blog Posts</h1>
+  {% if filtered_tags %}
+	filtered by tags: {% for tag in filtered_tags %}<a href="{% url 'home' %}?tags={{tag.pk}}" class="post-tag">{{tag.name}}</a>{% endfor %}<br >
+	<a href="{% url 'home' %}">show all</a>
+  {% endif %}
   <ul>
-    <li class="year">2013</li>
+
     {% for blog in blogs %}    
     <li>
     <a href="{% url 'blog' blog.pk %}{{blog.title|slugify|truncatechars:60}}">{{ blog.title|truncatechars:150 }}</a>

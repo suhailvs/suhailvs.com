@@ -21,8 +21,9 @@ overflow-x:auto;
 <div class="post">
     <h1 class="title">{{blog.title}}</h1>
     <p class="date">{{blog.created}}</p>
+    Tags:
     {% for tag in blog.tags.all %}
-    <a href=""><span style="font-size:.9em; margin: 5px;">{{ tag.name }}</span></a>
+    <a href="{% url 'home' %}?tags={{tag.pk}}" class="post-tag">{{tag.name}}</a>
     {% endfor %}
     <div class="body">{{ blog.content|markdown|safe }}</div>
 </div>
