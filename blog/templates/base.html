@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
+{% load bextras %}
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}Suhail vs, Django Developer</title>
@@ -37,9 +38,7 @@
 	<div id="light" class="white_content">    
 	    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="boxclose"></a>
 	    <div style="padding:20px;"> 
-	    	<a href="#">
-	    		<span style="font-size:.9em; margin: 5px;">sdfa fdsafdsf</span>
-	    	</a>
+	    	{% create_tagmenu %}
 	    </div>
 	</div>
 	<div id="fade" class="black_overlay"></div>
