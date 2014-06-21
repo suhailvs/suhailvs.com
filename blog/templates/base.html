@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
-{% load bextras %}
+
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}Suhail vs, Django Developer</title>
@@ -10,23 +10,44 @@
 
     <meta name="description" content={% block metadescription %}"This blog is about Python, Django, webdevelopment."{% endblock %}/>
     <meta name="url" content={% block metaurl %}"http://suhailvs.com/"{% endblock %}/>
-    <link rel="stylesheet" href="{% static "style.css" %}">
-	
+    <link rel="stylesheet" href="{% static "selectize/css/selectize.css" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">	
 	{% block extrahead %}
-		{% endblock %}		
+	{% endblock %}		
 </head>
 <body>
-	<div style="float:right;">
-	<form action="{% url 'home' %}" method="get">
+<style type="text/css">
+	#searchbytag {
+        
+        float: right;
+	}
+
+	#searchbytag .btnsearch {        
+        padding:6px 15px;
+        left:-8px;
+        border:2px solid #207cca;
+        background-color:#207cca;
+        color:#fafafa;
+	}
+	#searchbytag .btnsearch:hover  {
+        background-color:#fafafa;
+        color:#207cca;
+        cursor: pointer;
+	}
+</style>
+	
+	<form id="searchbytag" action="{% url 'home' %}" method="get">
+	<table><tr><td>
 	    <select id="select-tag" name="tags" multiple="multiple" placeholder="Select a tag..." tabindex="-1">
-		    <option value="1" selected="selected">Django</option>
-		    <option value="2">Github</option>
-		    <option value="3">Git</option>
-		    <option value="4" selected="selected">Pooo</option>
+	    	{% for tag in tags %}
+	    	<option value="{{ tag.1 }}">{{ tag.2 }} x {{ tag.0 }}</option>
+	    	{% endfor %}
 		</select>
-		<button type="submit">Search</button>
+		</td><td>
+		<input class="btnsearch" type="submit" value="Search" />
+	</td></tr></table>
 	</form>
-	</div>
+	
 	<div class="site">
 	    <span style="color:#fff;font-size:2em">
 	        <strong>Suhail VS - </strong><small>Python Django Developer</small>
@@ -46,10 +67,21 @@
 	<div id="light" class="white_content">    
 	    <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="boxclose"></a>
 	    <div style="padding:20px;"> 
-	    	{% create_tagmenu %}
+	    	<ul><!--#[(count,pk,name)......]-->
+	    	{% for tag in tags %}
+	    	<li><a href="{% url 'home' %}?tags={{ tag.1 }}" class="post-tag">{{ tag.2 }}</a><span class="item-multiplier"> x {{ tag.0 }}</span></li>
+	    	{% endfor %}
+	    	</ul>
 	    </div>
 	</div>
 	<div id="fade" class="black_overlay"></div>
+
+	<!-- selectize multiselect -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="{% static "selectize/js/standalone/selectize.min.js" %}"></script>
+	<script type="text/javascript">
+	$('#select-tag').selectize();
+	</script>
 	{% block javascripts %}
 	{% endblock %} 
 </body>

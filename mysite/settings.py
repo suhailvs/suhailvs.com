@@ -83,6 +83,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS += ('blog.custom_processors.all_tags',)
 
 if 'OPENSHIFT_DATA_DIR' in os.environ:
     #IF RHC    
