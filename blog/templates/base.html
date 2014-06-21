@@ -11,13 +11,21 @@
     <meta name="description" content={% block metadescription %}"This blog is about Python, Django, webdevelopment."{% endblock %}/>
     <meta name="url" content={% block metaurl %}"http://suhailvs.com/"{% endblock %}/>
     <link rel="stylesheet" href="{% static "style.css" %}">
-	<link rel="stylesheet" href="{% static "heatmap/cal-heatmap.css" %}"> 
+	
 	{% block extrahead %}
 		{% endblock %}		
 </head>
 <body>
 	<div style="float:right;">
-	    <div id="cal-heatmap"></div>
+	<form action="{% url 'home' %}" method="get">
+	    <select id="select-tag" name="tags" multiple="multiple" placeholder="Select a tag..." tabindex="-1">
+		    <option value="1" selected="selected">Django</option>
+		    <option value="2">Github</option>
+		    <option value="3">Git</option>
+		    <option value="4" selected="selected">Pooo</option>
+		</select>
+		<button type="submit">Search</button>
+	</form>
 	</div>
 	<div class="site">
 	    <span style="color:#fff;font-size:2em">
@@ -42,37 +50,6 @@
 	    </div>
 	</div>
 	<div id="fade" class="black_overlay"></div>
-
-	<script type="text/javascript" src="{% static "heatmap/d3.v3.min.js" %}"></script>  
-	<script type="text/javascript" src="{% static "heatmap/cal-heatmap.min.js" %}"></script>
-	<script type="text/javascript">
-	    var calendar = new CalHeatMap();	    
-	    var dt = new Date();
-	    //alert(String(dt.getTime()));
-	    var x = 1; //or whatever offset
-	    dt.setYear(dt.getFullYear() - x+1);        
-	    calendar.init({            
-	        domain: "year",
-	        subDomain: "month",            
-	        start: dt,
-	        cellSize: 25,
-	        range: x,
-	        subDomainTextFormat: "%m",
-	        displayLegend: false,    
-	        onClick: function(date, nb) {
-	            var curmonth=date.getMonth() +1;
-	            var url="/archive/"+date.getFullYear()+'/'+curmonth+'/';
-	            alert(url+"<br/>with <b>" +
-	                (nb === null ? "unknown" : nb) + "</b> items");
-	            document.location.assign(url);
-	        },
-	        //legendVerticalPosition: "top",
-	        //data: {
-	        //    String(dt.getTime()): 100,            
-	        //},
-	        legend: [5,10,15,20,25]
-	    });
-	</script>
 	{% block javascripts %}
 	{% endblock %} 
 </body>

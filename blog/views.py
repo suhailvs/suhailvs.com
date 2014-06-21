@@ -26,11 +26,6 @@ def home(request):
 	blogs=limit_data(request.GET.get('page'),blogs,1)
 	return render(request,'home.html',{'blogs':blogs,'filtered_tags':filtered_tags})
 
-def archive(request,year,month):
-	filtered_by='Year:{0}, Month:{1}'.format(year,month)
-	blogs=Blog.objects.filter(created__year=year,created__month=month).order_by('-created')
-	blogs=limit_data(request.GET.get('page'),blogs,1)
-	return render(request,'archive.html',{'blogs':blogs,'filtered_by':filtered_by})
 def blog(request,pk):
 	blog=Blog.objects.get(id=pk)
 	return render(request,'blog.html',{'blog':blog})

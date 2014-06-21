@@ -8,18 +8,12 @@
 	<a href="{% url 'home' %}">show all</a>
   {% endif %}
   <ul>
-
     {% for blog in blogs %}    
     <li>
     <a href="{% url 'blog' blog.pk %}{{blog.title|slugify|truncatechars:60}}">{{ blog.title|truncatechars:150 }}</a>
     </li>
     {% endfor %}    
-  </ul>
-
- 
+  </ul> 
   {% include 'paginator.html' %}
-
 </div>
- 
-
 {% endblock %}

@@ -8,7 +8,6 @@ urlpatterns = patterns('blog.views',
     url(r'^$', 'home', name='home'),
     url(r'^(\d{1,5})/', 'blog', name='blog'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^archive/(\d{4})/(\d{1,2})/$', 'archive', name='archive'),
     url(r'^(aboutme|projects)$', 'staticpages', name='static_pages'),
     url(r'^admin/', include(admin.site.urls)),
 )
