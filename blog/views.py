@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from blog.models import Blog,Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Q
+from django.http import HttpResponse
 def limit_data(page,data,n=10):
 	paginator = Paginator(data,n) # Show 10 notes per page
 	try:
@@ -17,9 +18,17 @@ def limit_data(page,data,n=10):
 
 # Create your views here.
 def home(request):
-	if 'tags' in request.GET:		
-		blogs=Blog.objects.filter(tags__in=request.GET.getlist('tags')).order_by('-created')
-		filtered_tags=Tag.objects.filter(id__in=request.GET.getlist('tags'))	
+	if 'tags' in request.GET:
+		input_tags=request.GET.getlist('tags')
+		print input_tags
+		blogs=Blog.objects.filter(tags__id=input_tags[0]).order_by('-created')
+		if len(input_tags)>1:
+			#blogs=Blog.objects.filter(tags__in=request.GET.getlist('tags')).order_by('-created')
+			for i in range(1,len(input_tags)):				
+				blogs=blogs.filter(tags__id=input_tags[i])
+			filtered_tags=Tag.objects.filter(id__in=input_tags)	
+		else:			
+			filtered_tags=Tag.objects.filter(id=input_tags[0])
 	else:
 		filtered_tags=False
 		blogs=Blog.objects.order_by('-created')

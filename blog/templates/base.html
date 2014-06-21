@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
-
+{% load bextras %}
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}Suhail vs, Django Developer</title>
@@ -10,7 +10,7 @@
 
     <meta name="description" content={% block metadescription %}"This blog is about Python, Django, webdevelopment."{% endblock %}/>
     <meta name="url" content={% block metaurl %}"http://suhailvs.com/"{% endblock %}/>
-    <link rel="stylesheet" href="{% static "selectize/selectize.custom.css" %}">
+    <link rel="stylesheet" href="{% static "selectize/custom.css" %}">
     <link rel="stylesheet" href="{% static "style.css" %}">	
 	{% block extrahead %}
 	{% endblock %}		
@@ -26,7 +26,7 @@
 	<table><tr><td>
 	    <select id="select-tag" name="tags" multiple="multiple" placeholder="Select a tag..." tabindex="-1">
 	    	{% for tag in tags %}
-	    	<option value="{{ tag.1 }}">{{ tag.2 }}</option>
+	    	<option value="{{ tag.1 }}"{% if tag.1 in filtered_tags|collect_tagid %} selected="selected"{% endif %}>{{ tag.2 }}</option>
 	    	{% endfor %}
 		</select>
 		</td><td>
