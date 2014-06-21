@@ -10,29 +10,15 @@
 
     <meta name="description" content={% block metadescription %}"This blog is about Python, Django, webdevelopment."{% endblock %}/>
     <meta name="url" content={% block metaurl %}"http://suhailvs.com/"{% endblock %}/>
-    <link rel="stylesheet" href="{% static "selectize/css/selectize.css" %}">
+    <link rel="stylesheet" href="{% static "selectize/selectize.custom.css" %}">
     <link rel="stylesheet" href="{% static "style.css" %}">	
 	{% block extrahead %}
 	{% endblock %}		
 </head>
 <body>
 <style type="text/css">
-	#searchbytag {
-        
+	#searchbytag {        
         float: right;
-	}
-
-	#searchbytag .btnsearch {        
-        padding:6px 15px;
-        left:-8px;
-        border:2px solid #207cca;
-        background-color:#207cca;
-        color:#fafafa;
-	}
-	#searchbytag .btnsearch:hover  {
-        background-color:#fafafa;
-        color:#207cca;
-        cursor: pointer;
 	}
 </style>
 	
@@ -40,11 +26,11 @@
 	<table><tr><td>
 	    <select id="select-tag" name="tags" multiple="multiple" placeholder="Select a tag..." tabindex="-1">
 	    	{% for tag in tags %}
-	    	<option value="{{ tag.1 }}">{{ tag.2 }} x {{ tag.0 }}</option>
+	    	<option value="{{ tag.1 }}">{{ tag.2 }}</option>
 	    	{% endfor %}
 		</select>
 		</td><td>
-		<input class="btnsearch" type="submit" value="Search" />
+		<input type="submit" value="Search" />
 	</td></tr></table>
 	</form>
 	
@@ -78,7 +64,7 @@
 
 	<!-- selectize multiselect -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="{% static "selectize/js/standalone/selectize.min.js" %}"></script>
+	<script src="{% static "selectize/selectize.min.js" %}"></script>
 	<script type="text/javascript">
 	$('#select-tag').selectize();
 	</script>
