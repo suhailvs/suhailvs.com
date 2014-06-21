@@ -3,7 +3,7 @@ from blog.models import Blog,Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.http import HttpResponse
-def limit_data(page,data,n=10):
+def limit_data(page,data,n=30):
 	paginator = Paginator(data,n) # Show 10 notes per page
 	try:
 		p_data = paginator.page(page)
@@ -14,7 +14,6 @@ def limit_data(page,data,n=10):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		p_data = paginator.page(paginator.num_pages)
 	return p_data
-
 
 # Create your views here.
 def home(request):
@@ -32,7 +31,7 @@ def home(request):
 	else:
 		filtered_tags=False
 		blogs=Blog.objects.order_by('-created')
-	blogs=limit_data(request.GET.get('page'),blogs,1)
+	blogs=limit_data(request.GET.get('page'),blogs)
 	return render(request,'home.html',{'blogs':blogs,'filtered_tags':filtered_tags})
 
 def blog(request,pk):

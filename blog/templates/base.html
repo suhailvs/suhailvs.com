@@ -16,12 +16,9 @@
 	{% endblock %}		
 </head>
 <body>
-<style type="text/css">
-	#searchbytag {        
-        float: right;
-	}
-</style>
-	
+	<style type="text/css">
+		#searchbytag {float: right;}
+	</style>	
 	<form id="searchbytag" action="{% url 'home' %}" method="get">
 	<table><tr><td>
 	    <select id="select-tag" name="tags" multiple="multiple" placeholder="Select a tag..." tabindex="-1">
@@ -38,6 +35,7 @@
 	    <span style="color:#fff;font-size:2em">
 	        <strong>Suhail VS - </strong><small>Python Django Developer</small>
 	    </span> 
+	    <p style="color:#FFCCCC;font-size:.8em;margin:0;padding:0"> I write mainly about python django and almost anything. feel free to take a look at the <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">tags</a></p>
 	    <!-- Nav bar -->
 	    <div class="nav">
 	        <a href="{% url 'home' %}">Home</a>|<a href="{% url 'static_pages' 'aboutme' %}">About me</a>|<a href="{% url 'static_pages' 'projects' %}">Projects</a>| <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Tags</a>          
