@@ -1,6 +1,6 @@
 <div class="pagination">
   {% if blogs.has_previous %}
-    <a href="{{myblogs}}?page={{ blogs.previous_page_number }}">
+    <a href="{{myblogs}}?page={{ blogs.previous_page_number }}{% if filtered_tags %}{% for tag in filtered_tags %}&tags={{tag.pk}}{% endfor %}{% endif %}">
     « Previous</a>
   {% else %}
     <span class="disabled">« Previous</span>
@@ -10,12 +10,12 @@
     {% if page == blogs.number %}
       <span class="current">{{ page }}</span>
     {% else %}
-      <a href="{{myblogs}}?page={{ page }}">{{ page }}</a>
+      <a href="{{myblogs}}?page={{ page }}{% if filtered_tags %}{% for tag in filtered_tags %}&tags={{tag.pk}}{% endfor %}{% endif %}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 
   {% if blogs.has_next %}
-    <a href="{{myblogs}}?page={{ blogs.next_page_number }}" class="next">Next »</a>
+    <a href="{{myblogs}}?page={{ blogs.next_page_number }}{% if filtered_tags %}{% for tag in filtered_tags %}&tags={{tag.pk}}{% endfor %}{% endif %}" class="next">Next »</a>
   {% else %}
     <span class="disabled">Next »</span>
   {% endif %}

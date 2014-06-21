@@ -107,6 +107,10 @@ ul.posts li a:hover {
 .post .body h3 {
 }
 
+code{
+    background: #F0CCCC;
+padding: 2px 8px;
+}
 /*custom
 ========================================================*/
 body {
