@@ -60,10 +60,11 @@
 	        subDomainTextFormat: "%m",
 	        displayLegend: false,    
 	        onClick: function(date, nb) {
-	            alert("You just clicked <br/>on <b>month:" +
-	                date.getMonth() + "date:"+ date+"</b> <br/>with <b>" +
-	                (nb === null ? "unknown" : nb) + "</b> items"
-	            );
+	            var curmonth=date.getMonth() +1;
+	            var url="/archive/"+date.getFullYear()+'/'+curmonth+'/';
+	            alert(url+"<br/>with <b>" +
+	                (nb === null ? "unknown" : nb) + "</b> items");
+	            document.location.assign(url);
 	        },
 	        //legendVerticalPosition: "top",
 	        //data: {

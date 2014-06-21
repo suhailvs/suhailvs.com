@@ -204,3 +204,41 @@ a.post-tag {
     font-weight: normal;
     color: #999;
 }
+
+
+/*=================================
+pagination
+==============================*/
+
+div.pagination {
+    padding: 3px;
+    margin: 3px;
+    text-align:center;
+    font-size: 60%;    
+}
+div.pagination a {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #90514D;
+    text-decoration: none;
+    /* no underline */
+    color: #90514D;
+}
+div.pagination a:hover, div.digg a:active {
+    border: 1px solid #400;
+    color: #400;
+}
+div.pagination span.current {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #400;
+    font-weight: bold;
+    background-color: #90514D;
+    color: #FFF;
+}
+div.pagination span.disabled {
+    padding: 2px 5px 2px 5px;
+    margin: 2px;
+    border: 1px solid #bbb;
+    color: #ccc;
+}
