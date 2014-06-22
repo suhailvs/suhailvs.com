@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'django.contrib.sitemaps',
     'blog',
 )
@@ -83,7 +84,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+SITE_ID = 1
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS += ('blog.custom_processors.all_tags',)
 
