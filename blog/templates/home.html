@@ -11,6 +11,9 @@
     {% for blog in blogs %}    
     <li>
     <a href="{% url 'blog' blog.pk %}{{blog.title|slugify|truncatechars:60}}">{{ blog.title|truncatechars:150 }}</a>
+      {% for tag in blog.tags.all %}
+        <a href="{% url 'home' %}?tags={{tag.pk}}" style="font-size:.5em;background:#700;color:#fff;padding:1px 2px;text-decoration:none">{{tag.name}}</a>
+      {% endfor %}
     </li>
     {% endfor %}    
   </ul> 
