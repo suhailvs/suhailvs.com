@@ -105,3 +105,12 @@ if 'OPENSHIFT_DATA_DIR' in os.environ:
                 'CONN_MAX_AGE': 600,
             }
         }
+else:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'suhails',
+                'USER': 'root',
+                'PASSWORD': 'suhail',                
+            }
+        }
