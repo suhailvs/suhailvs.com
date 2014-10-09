@@ -88,29 +88,15 @@ SITE_ID = 1
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS += ('blog.custom_processors.all_tags',)
 
-if 'OPENSHIFT_DATA_DIR' in os.environ:
-    #IF RHC    
-    is_mysql=True    
-    #MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '')
-    STATIC_ROOT = os.path.join(BASE_DIR, 'wsgi','static')
-    if is_mysql:
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'www',
-                'USER': 'admincfbxk9D',
-                'PASSWORD': 'SWAJ1mCXX_dg',
-                'HOST': os.environ.get('OPENSHIFT_MYSQL_DB_HOST'),
-                'PORT': os.environ.get('OPENSHIFT_MYSQL_DB_PORT'),
-                'CONN_MAX_AGE': 600,
-            }
-        }
-else:
+webfaction=True
+if webfaction:
     DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'suhails',
-                'USER': 'root',
-                'PASSWORD': 'suhail',                
-            }
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', 
+            'NAME': 'suhailsin',
+            'USER': 'suhail',
+            'PASSWORD': 'suhail',
+            'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+            'PORT': '3306',
         }
+    }
