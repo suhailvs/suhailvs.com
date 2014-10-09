@@ -53,4 +53,4 @@ coverage.xml
 docs/_build/
 
 db.sqlite3
-wsgi/static/
+staticfiles/
