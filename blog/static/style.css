@@ -14,6 +14,16 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2, h3 {
     margin: 1em 0;
 }
+
+.body h1 {
+    border-bottom: 2px solid #400;
+    color: #400;
+}
+.body h2 {
+    border-bottom: 1px solid #777;
+    color: #777;
+}
+
 p {
     margin: 1em 0;
 }

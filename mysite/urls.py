@@ -3,6 +3,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = patterns('blog.views',
     # Examples:
     url(r'^$', 'home', name='home'),
@@ -10,7 +13,7 @@ urlpatterns = patterns('blog.views',
     # url(r'^blog/', include('blog.urls')),
     url(r'^(aboutme|projects)$', 'staticpages', name='static_pages'),
     url(r'^admin/', include(admin.site.urls)),
-)
+)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 from django.contrib.sitemaps import GenericSitemap

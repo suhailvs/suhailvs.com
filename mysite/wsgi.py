@@ -1,14 +1,14 @@
-"""
-WSGI config for mysite project.
+import os,sys
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
-"""
+virtenv =os.path.join(os.environ['HOME'],'webapps','suhails','myenv','bin','activate_this.py')
+#virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+try:
+    execfile(virtenv, dict(__file__=virtenv))
+except IOError:
+    pass
 
-import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+from django.core.handlers.wsgi import WSGIHandler
 
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+application = WSGIHandler()
