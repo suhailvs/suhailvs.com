@@ -40,3 +40,13 @@ def blog(request,pk):
 
 def staticpages(request,page):
 	return render(request,'{0}.html'.format(page))
+
+def videos(request,fname):
+	import os.path
+	folder_url='http://d.suhails.in/suhails.in_videos/'
+	fpath="/home/suhailvs/webapps/downloads/suhails.in_videos/{file}.mp4".format(file=fname)
+	
+	if os.path.isfile(fpath):
+		return render(request,'video.html',{'url':folder_url,'file':fname})
+
+	return HttpResponse("File doesn't exist in <a href='"+folder_url+"'>here.</a>")

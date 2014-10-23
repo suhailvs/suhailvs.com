@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block extrahead %}
+<link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.9/video.js"></script>
+{% endblock %}		
+
+{% block content %}
+<div class="post">
+  <h2>File: <small>{{file}}</small></h2>
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" data-setup='{"example_option":true}'>    
+	    <source src="{{url}}{{file}}.mp4" type='video/mp4' />
+	    <!--supported types = video/mp4,video/webm,video/ogg-->
+	    <p class="vjs-no-js">To view this video please enable JavaScript</p>
+	</video>
+</div>
+{% endblock %}

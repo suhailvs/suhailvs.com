@@ -10,7 +10,8 @@ urlpatterns = patterns('blog.views',
     # Examples:
     url(r'^$', 'home', name='home'),
     url(r'^(\d{1,5})/', 'blog', name='blog'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^_([\w_]+)', 'videos'),
+
     url(r'^(aboutme|projects)$', 'staticpages', name='static_pages'),
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
