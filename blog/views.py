@@ -19,7 +19,6 @@ def limit_data(page,data,n=30):
 def home(request):
 	if 'tags' in request.GET:
 		input_tags=request.GET.getlist('tags')
-		print input_tags
 		blogs=Blog.objects.filter(tags__id=input_tags[0]).order_by('-created')
 		if len(input_tags)>1:
 			#blogs=Blog.objects.filter(tags__in=request.GET.getlist('tags')).order_by('-created')

@@ -1,2 +1,2 @@
-djangsdfsfvo
-markdown
+Django==1.8.6
+Markdown==2.4
